@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brawl Wrestling</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./favicon.ico" type="image/jpg" />
+  </head>
+  <body>
+    <button id="fight" onClick="window.location.reload();">
+      <h1>FIGHT BEGIN</h1>
+    </button>
+    <canvas id="my-character"> </canvas>
+    <div id="container">
+      <div id="friend">
+        <button id="backward">MOVE BACKWARD (←)</button>
+        <button id="forward">MOVE FORWARD (→)</button>
+        <button id="kick">KICK (↑)</button>
+        <button id="block">BLOCK (↓)</button>
+        <button id="punch">Punch(L)</button>
+      </div>
+      <div id="enemy">
+        <button id="enemy_forward">MOVE FORWARD (S)</button>
+        <button id="enemy_backward">MOVE BACKWARD (A)</button>
+        <button id="enemy_kick">KICK (W)</button>
+        <button id="enemy_block">BLOCK (Z)</button>
+        <button id="enemy_punch">Punch(D)</button>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>

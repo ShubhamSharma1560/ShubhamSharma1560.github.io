@@ -1,0 +1,40 @@
+html {
+  background: url("./images/background.jpg") no-repeat center fixed;
+  background-size: 100% 100%;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+}
+#container {
+  display: flex;
+  width: 90%;
+}
+#fight {
+  padding: 10px;
+  display: block;
+  margin: 0 auto;
+}
+h1 {
+  margin: 0%;
+  color: red;
+  text-align: center;
+  cursor: pointer;
+}
+
+#friend {
+  float: left;
+  margin-right: 10vw;
+}
+#enemy {
+  float: right;
+  margin-left: 10vw;
+}
+button {
+  color: rgb(95, 10, 10);
+  font-weight: bold;
+  background-color: aqua;
+  margin: 10px 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
