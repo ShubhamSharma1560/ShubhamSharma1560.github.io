@@ -211,6 +211,9 @@ Array.from(btn).forEach(function (element) {
 });
 let vol = document.getElementById("audio3");
 vol.volume = 0.05;
+window.onload = function () {
+  document.getElementById("audio3").play();
+};
 let btn1 = document.getElementsByClassName("kick1");
 Array.from(btn1).forEach(function (element) {
   element.addEventListener("click", play1);
