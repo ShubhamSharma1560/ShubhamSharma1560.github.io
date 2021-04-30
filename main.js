@@ -1,9 +1,23 @@
 let element = document.getElementById("my-character");
 let ctx = element.getContext("2d");
 ctx.canvas.width = window.innerWidth;
-ctx.canvas.height = window.innerHeight / 1.5;
+ctx.canvas.height = window.innerHeight / 2;
 let heightofmarshal = ctx.canvas.height;
 let widthofmarshal = ctx.canvas.width / 3;
+let aud = document.getElementById("audio");
+function play() {
+  document.getElementById("audio").play();
+  document.getElementById("audio").volume = 0.05;
+}
+function play1() {
+  document.getElementById("audio1").play();
+}
+function play2() {
+  document.getElementById("audio2").play();
+}
+function play3() {
+  document.getElementById("audio4").play();
+}
 let loadImage = (src, callback) => {
   let img = document.createElement("img");
   img.onload = () => callback(img);
@@ -55,26 +69,47 @@ let pos1 = ctx.canvas.width / 2;
 let friendanimate = (ctx, images, animation, callback) => {
   images[animation].forEach((image, index) => {
     setTimeout(() => {
-      if (animation === "forward" && pos < pos1 / 3.5) pos = pos + 10;
+      if (animation === "forward" && pos < pos1 - widthofmarshal / 2.5)
+        pos = pos + 10;
       else if (animation === "backward" && pos >= 0) pos = pos - 10;
-      ctx.clearRect(pos, 0, widthofmarshal, heightofmarshal);
+      ctx.clearRect(
+        pos,
+        0,
+        widthofmarshal - widthofmarshal / 25,
+        heightofmarshal
+      );
       ctx.drawImage(image, pos, 0, widthofmarshal, heightofmarshal);
     }, index * 100);
   });
-  setTimeout(callback, images[animation].length * 100);
+  //requestAnimationFrame(callback);
+  setTimeout(function () {
+    requestAnimationFrame(callback);
+  }, images[animation].length * 100);
+  //setTimeout(callback, images[animation].length * 100);
 };
 let enemyanimate = (ctx, images, animation, callback) => {
   images[animation].forEach((image, index) => {
     setTimeout(() => {
-      if (animation === "forward" && pos1 > pos * 3.5) pos1 = pos1 - 10;
+      if (animation === "forward" && pos1 > pos + widthofmarshal / 2.5)
+        pos1 = pos1 - 10;
       else if (animation === "backward" && pos1 <= ctx.canvas.width / 1.5)
         pos1 = pos1 + 10;
-      ctx.clearRect(pos1, 0, widthofmarshal, heightofmarshal);
+      ctx.clearRect(
+        pos1 + widthofmarshal / 25,
+        0,
+        widthofmarshal,
+        heightofmarshal
+      );
       ctx.drawImage(image, pos1, 0, widthofmarshal, heightofmarshal);
     }, index * 100);
   });
-  setTimeout(callback, images[animation].length * 100);
+  setTimeout(function () {
+    requestAnimationFrame(callback);
+  }, images[animation].length * 100);
+  //requestAnimationFrame(callback);
+  //setTimeout(callback, images[animation].length * 100);
 };
+let framesPerSecond = 10;
 loadimages(0, (images) => {
   let queuedAnimation = [];
   let aux = () => {
@@ -84,7 +119,6 @@ loadimages(0, (images) => {
     } else {
       selectedAnimation = queuedAnimation.shift();
     }
-
     friendanimate(ctx, images, selectedAnimation, aux);
   };
   aux();
@@ -103,6 +137,7 @@ loadimages(0, (images) => {
   document.getElementById("forward").onclick = () => {
     queuedAnimation.push("forward");
   };
+
   document.addEventListener("keyup", (event) => {
     const key = event.key;
     if (key == "ArrowLeft") {
@@ -170,3 +205,21 @@ loadimages(1, (images) => {
 //     ctx.drawImage(myImg,0,0);
 // }
 // img.src="./idle/1.png";
+let btn = document.getElementsByClassName("punch1");
+Array.from(btn).forEach(function (element) {
+  element.addEventListener("click", play);
+});
+let vol = document.getElementById("audio3");
+vol.volume = 0.05;
+let btn1 = document.getElementsByClassName("kick1");
+Array.from(btn1).forEach(function (element) {
+  element.addEventListener("click", play1);
+});
+let btn2 = document.getElementsByClassName("block1");
+Array.from(btn2).forEach(function (element) {
+  element.addEventListener("click", play2);
+});
+let btn3 = document.getElementsByClassName("move");
+Array.from(btn3).forEach(function (element) {
+  element.addEventListener("click", play3);
+});
