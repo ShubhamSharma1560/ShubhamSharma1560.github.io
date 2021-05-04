@@ -1,9 +1,7 @@
 html {
-  background: url("./images/background.jpg") no-repeat center;
+  background: url("./images/background.jpg") no-repeat center cover;
   background-size: 100% 100%;
-  overflow-x: hidden;
   height: 100%;
-  width: 100%;
 }
 #container {
   display: flex;
