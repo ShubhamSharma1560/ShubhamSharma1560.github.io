@@ -28,21 +28,22 @@
       <source src="./Audio/footsteps-4.wav" type="audio/wav" />
     </audio>
     <button id="fight" onClick="window.location.reload();">
-      <h1>CLICK HERE TO BEGIN FIGHT</h1>
+      <h2>CLICK HERE TO BEGIN FIGHT</h2>
     </button>
     <canvas id="my-character"> </canvas>
     <div id="container">
       <div id="friend">
+        <button class="kick1" id="kick">KICK (↑)</button><br />
         <button class="move" id="backward">MOVE BACKWARD (←)</button>
-        <button class="move" id="forward">MOVE FORWARD (→)</button>
-        <button class="kick1" id="kick">KICK (↑)</button>
+        <button class="move" id="forward">MOVE FORWARD (→)</button><br />
         <button class="block1" id="block">BLOCK (↓)</button>
         <button class="punch1" id="punch">Punch(L)</button>
       </div>
       <div id="enemy">
+        <button class="kick1" id="enemy_kick">KICK (W)</button><br />
         <button class="move" id="enemy_backward">MOVE BACKWARD (A)</button>
-        <button class="move" id="enemy_forward">MOVE FORWARD (S)</button>
-        <button class="kick1" id="enemy_kick">KICK (W)</button>
+        <button class="move" id="enemy_forward">MOVE FORWARD (S)</button><br />
+
         <button class="block1" id="enemy_block">BLOCK (Z)</button>
         <button class="punch1" id="enemy_punch">Punch(D)</button>
       </div>

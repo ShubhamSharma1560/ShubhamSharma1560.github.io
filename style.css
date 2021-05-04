@@ -1,20 +1,22 @@
 html {
-  background: url("./images/background.jpg") no-repeat center fixed;
+  background: url("./images/background.jpg") no-repeat center;
   background-size: 100% 100%;
-  position: relative;
-  overflow-x: hidden;
-  display: flex;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 #container {
   display: flex;
-  width: 90%;
+}
+canvas {
+  margin-top: 5vh;
 }
 #fight {
   padding: 10px;
   display: block;
   margin: 0 auto;
 }
-h1 {
+h2 {
   margin: 0%;
   color: red;
   text-align: center;
@@ -22,12 +24,14 @@ h1 {
 }
 
 #friend {
-  float: left;
+  height: auto;
   margin-right: 10vw;
+  text-align: center;
 }
 #enemy {
-  float: right;
-  margin-left: 10vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 20px;
 }
 button {
   color: rgb(95, 10, 10);

@@ -1,9 +1,9 @@
 let element = document.getElementById("my-character");
 let ctx = element.getContext("2d");
 ctx.canvas.width = window.innerWidth;
-ctx.canvas.height = window.innerHeight / 2;
+ctx.canvas.height = window.innerHeight / 1.7;
 let heightofmarshal = ctx.canvas.height;
-let widthofmarshal = ctx.canvas.width / 3;
+let widthofmarshal = ctx.canvas.width / 2;
 let aud = document.getElementById("audio");
 function play() {
   document.getElementById("audio").play();
@@ -26,7 +26,8 @@ let loadImage = (src, callback) => {
 
 let array1 = ["idle", "kick", "punch", "block", "backward", "forward"];
 let imagepath = (flag, animation, frameno) => {
-  if (flag == 1) return "./images/enemy" + animation + "/" + frameno + ".png";
+  if (flag == 1)
+    return "./images/enemy" + animation + "/" + frameno + ".png";
   else return "./images/" + animation + "/" + frameno + ".png";
 };
 let frames = {
@@ -75,13 +76,13 @@ let friendanimate = (ctx, images, animation, callback) => {
       ctx.clearRect(
         pos,
         0,
-        widthofmarshal - widthofmarshal / 25,
+        widthofmarshal - widthofmarshal / 20,
         heightofmarshal
       );
       ctx.drawImage(image, pos, 0, widthofmarshal, heightofmarshal);
     }, index * 100);
   });
-  //requestAnimationFrame(callback);
+  // requestAnimationFrame(callback);
   setTimeout(function () {
     requestAnimationFrame(callback);
   }, images[animation].length * 100);
@@ -92,10 +93,10 @@ let enemyanimate = (ctx, images, animation, callback) => {
     setTimeout(() => {
       if (animation === "forward" && pos1 > pos + widthofmarshal / 2.5)
         pos1 = pos1 - 10;
-      else if (animation === "backward" && pos1 <= ctx.canvas.width / 1.5)
+      else if (animation === "backward" && pos1 < ctx.canvas.width / 1.8)
         pos1 = pos1 + 10;
       ctx.clearRect(
-        pos1 + widthofmarshal / 25,
+        pos1 + widthofmarshal / 20,
         0,
         widthofmarshal,
         heightofmarshal
@@ -106,7 +107,7 @@ let enemyanimate = (ctx, images, animation, callback) => {
   setTimeout(function () {
     requestAnimationFrame(callback);
   }, images[animation].length * 100);
-  //requestAnimationFrame(callback);
+  // requestAnimationFrame(callback);
   //setTimeout(callback, images[animation].length * 100);
 };
 let framesPerSecond = 10;
@@ -209,11 +210,6 @@ let btn = document.getElementsByClassName("punch1");
 Array.from(btn).forEach(function (element) {
   element.addEventListener("click", play);
 });
-let vol = document.getElementById("audio3");
-vol.volume = 0.05;
-window.onload = function () {
-  document.getElementById("audio3").play();
-};
 let btn1 = document.getElementsByClassName("kick1");
 Array.from(btn1).forEach(function (element) {
   element.addEventListener("click", play1);
@@ -226,3 +222,9 @@ let btn3 = document.getElementsByClassName("move");
 Array.from(btn3).forEach(function (element) {
   element.addEventListener("click", play3);
 });
+
+let vol = document.getElementById("audio3");
+vol.volume = 0.05;
+window.onload = function () {
+  document.getElementById("audio3").play();
+};
